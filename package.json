@@ -1,0 +1,17 @@
+{
+  "name": "dotenv-safe-select",
+  "version": "1.0.0",
+  "main": "dist/dotenv-safe-select.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "cli-select": "^1.1.2",
+    "glob": "^7.1.6"
+  },
+  "bin": {
+    "dotenv-safe-select": "bin/dotenv-safe-select"
+  },
+  "peerDependencies": {
+    "dotenv-safe": "^8.2.0"
+  }
+}

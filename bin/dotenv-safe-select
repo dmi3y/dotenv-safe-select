@@ -1,0 +1,9 @@
+#! /usr/bin/env node
+
+const loadDotenv = require("../dist/dotenv-safe-select");
+const runProcessSafe = require("../dist/run-process-safe");
+
+loadDotenv.then(() => {
+  const argsToRun = process.argv.slice(2);
+  runProcessSafe(argsToRun);
+});
