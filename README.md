@@ -2,7 +2,7 @@
 
 > Allows to select dotenv files and run project with checks against predefined set of env variables during development.
 
-During development select any of .env<anything> files located into project root and do check current env variables against `.env.example` file [`dotenv-safe`](https://github.com/rolodato/dotenv-safe).
+During development select any of .env<anything> files located into project root and do check current env variables against `.env.example` file with [`dotenv-safe`](https://github.com/rolodato/dotenv-safe).
 
 ### Installation
 
@@ -15,9 +15,9 @@ During development select any of .env<anything> files located into project root 
 
 - Create other dotenv files like `.env.local`, `.env.staging`, `.env.production` etc. which are not checked in version control.
 
-- Issue development command for example `dotenv-safe-select -- next dev`.
+- Issue development command for example `yarn dotenv-safe-select -- next dev`.
 
-- Optionally it is possible to pass direct path to dotenv file like so `dotenv-safe-select --path .env.mine -- next dev`.
+- Optionally it is possible to pass direct path to dotenv file like so `yarn dotenv-safe-select --path .env.mine -- next dev`.
 
 - Select dotenv file you would like run your development against.
 
