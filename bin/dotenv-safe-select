@@ -1,9 +1,28 @@
 #! /usr/bin/env node
 
-const loadDotenv = require("../dist/dotenv-safe-select");
+const selectDotenv = require("../dist/select-dotenv");
+const loadDotenv = require("../dist/load-dotenv");
 const runProcessSafe = require("../dist/run-process-safe");
+const glob = require("glob");
+const args = require('args')
 
-loadDotenv.then(() => {
-  const argsToRun = process.argv.slice(2);
+args
+  .option('path', 'Path to dotenv file')
+
+const flags = args.parse(process.argv)
+
+const selectAndLoadFile = () => {
+  if (flags.path) {
+    const envfile = flags.path
+    return loadDotenv(envfile)
+  } else {
+    const envfiles = glob.sync(".env!(.example)");
+    return selectDotenv(envfiles)
+      .then(({envfile}) => loadDotenv(envfile))
+  }
+}
+
+selectAndLoadFile().then(() => {
+  const argsToRun = args.sub;
   runProcessSafe(argsToRun);
 });

@@ -15,10 +15,14 @@ During development select any of .env<anything> files located into project root 
 
 - Create other dotenv files like `.env.local`, `.env.staging`, `.env.production` etc. which are not checked in version control.
 
-- Issue development command for example `dotenv-safe-select next dev`.
+- Issue development command for example `dotenv-safe-select -- next dev`.
+
+- Optionally it is possible to pass direct path to dotenv file like so `dotenv-safe-select --path .env.mine -- next dev`.
 
 - Select dotenv file you would like run your development against.
 
 - Profit :palm_tree:
 
 Inspired by [donenv-flow](https://github.com/kerimdzhanov/dotenv-flow#readme).
+
+**Note:** the command passed to dotenv-safe-select executed as a child process spawn. I'm thinking to add child process fork support to be able execute `.js` files.
