@@ -2,7 +2,7 @@
 
 > Allows to select dotenv files and run project with checks against predefined set of env variables during development.
 
-During development select any of .env<anything> files located into project root and do check current env variables agains `.env.example` file [`dotenv-safe`](https://github.com/rolodato/dotenv-safe).
+During development select any of .env<anything> files located into project root and do check current env variables against `.env.example` file [`dotenv-safe`](https://github.com/rolodato/dotenv-safe).
 
 ### Installation
 
