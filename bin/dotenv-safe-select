@@ -4,25 +4,22 @@ const selectDotenv = require("../dist/select-dotenv");
 const loadDotenv = require("../dist/load-dotenv");
 const runProcessSafe = require("../dist/run-process-safe");
 const glob = require("glob");
-const args = require('args')
+const mri = require("mri");
 
-args
-  .option('path', 'Path to dotenv file')
+const args = process.argv.slice(2);
 
-const flags = args.parse(process.argv)
+const flags = mri(args);
 
 const selectAndLoadFile = () => {
   if (flags.path) {
-    const envfile = flags.path
-    return loadDotenv(envfile)
+    const envfile = flags.path;
+    return loadDotenv(envfile);
   } else {
     const envfiles = glob.sync(".env!(.example)");
-    return selectDotenv(envfiles)
-      .then(({envfile}) => loadDotenv(envfile))
+    return selectDotenv(envfiles).then(({ envfile }) => loadDotenv(envfile));
   }
-}
+};
 
 selectAndLoadFile().then(() => {
-  const argsToRun = args.sub;
-  runProcessSafe(argsToRun);
+  runProcessSafe(args);
 });
