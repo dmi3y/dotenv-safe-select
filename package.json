@@ -1,6 +1,6 @@
 {
   "name": "dotenv-safe-select",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main": "dist/dotenv-safe-select.js",
   "license": "MIT",
   "scripts": {
